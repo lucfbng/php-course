@@ -1,5 +1,6 @@
 <?php
-
+// Il y a deux méthodes : 1. MySQLi extention
+//                        2. PDO (PHP Data Object)
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
