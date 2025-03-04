@@ -32,6 +32,7 @@ $total = null;
 
 $total = abs($x); // Convertie la valeur de X en positif
 $total = round($x); // Arrondi la valeur de X à l'entier le plus proche
+$total = round($x, 2); // Valeur de X avec deux zeros derrière la virgule
 $total = floor($x); // Arrondi la valeur de X à l'entier inférieur
 $total = ceil($x); // Arrondi la valeur de X à l'entier supérieur
 $total = sqrt($x); // Calcul de la racine carrée de X
