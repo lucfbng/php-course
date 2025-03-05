@@ -1,2 +1,2 @@
 <?php
-$db = new PDO('mysql:host=localhost;dbname=tailwind-shop', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=shop-entrainement', 'root', '');

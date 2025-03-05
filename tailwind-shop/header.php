@@ -17,7 +17,7 @@
             </div>
             <div class="flex items-center gap-12">
                 <div class="flex justify-center">
-                    <a href="addProduct.php" class="btn btn-primary">Ajouter un produit</a>
+                    <a href="formAddProduct.php" class="btn btn-primary">Ajouter un produit</a>
                 </div>
                 <div class="dropdown dropdown-center">
                     <button class="btn btn-success p-2 rounded-md flex items-center gap-2"><i class="fa-solid fa-cart-shopping"></i>Panier</button>

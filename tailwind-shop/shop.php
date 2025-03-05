@@ -14,8 +14,8 @@ include 'header.php';
                 <figure>
                     <img
                     class='w-full h-full object-contain'
-                    src='src/img/rtx5090.png'
-                    alt='RTX 5090'/>
+                    src='uploads/{$products['product_picture']}'
+                    alt='{$products['product_name']}'/>
                 </figure>
                 <div class=\"card-body\">
                     <h2 class='card-title'>{$products['product_name']}</h2>
