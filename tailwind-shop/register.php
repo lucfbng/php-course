@@ -21,10 +21,10 @@
         <div class="w-1/2 m-auto text-white">
             <form action="addUser.php" method="post" class="flex flex-col gap-3 bg-slate-500 p-4 rounded-md justify-center items-center">
                 E-mail :
-                <input type="text" name="email" placeholder="E-mail">
+                <input class="input validator" type="email" name="email" required placeholder="mail@site.com" />
                 Password :
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Inscription</button>
+                <input type="password" class="input validator" required placeholder="Mot de passe" name="password" />
+                <button type="submit" class="btn btn-primary">Inscription</button>
             </form>
         </div>
     </main>

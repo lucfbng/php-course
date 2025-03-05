@@ -1,53 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/output.css">
-    <title>Shop</title>
-</head>
-
-<body>
-    <header class="flex justify-between items-center p-4">
-        <h1>Shop</h1>
-        <a href="userDisconnect.php">Déconnexion</a>
-    </header>
-    <main class="m-14 grid grid-cols-[300px_300px_300px] grid-rows-[300px_300px_300px] gap-4 justify-center">
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>Carte graphique</h2>
-            <p class="font-bold">999<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>Processeur</h2>
-            <p class="font-bold">399<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>Disque dur</h2>
-            <p class="font-bold">49<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>SSD</h2>
-            <p class="font-bold">99<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>RAM</h2>
-            <p class="font-bold">69<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-        <div class=" bg-slate-500 flex flex-col justify-end items-center gap-2 p-2.5">
-            <h2>Alimentation</h2>
-            <p class="font-bold">129<sup>99€</sup></p>
-            <button class="bg-blue-500 text-white p-2 rounded-md">Ajouter au panier</button>
-        </div>
-
-
-
-    </main>
-</body>
-
-</html>
+<?php
+require 'config/db.php';
+include 'header.php';
+?>
+<main class="p-4 grid grid-cols-[400px_400px_400px] grid-rows-[400px_400px_400px] gap-4 justify-center h-screen bg-slate-100">
+    <?php
+    $product = $db->query("SELECT * FROM product");
+    $product = $product->fetchAll();
+    $gridcol = 1;
+    $gridrow = 1;
+    foreach ($product as $products) {
+        echo
+        "<div class=\"card bg-base-100 w-96 shadow-sm grid-cols-{$gridcol} grid-rows-{$gridrow}\">
+                <figure>
+                    <img
+                    class='w-full h-full object-contain'
+                    src='src/img/rtx5090.png'
+                    alt='RTX 5090'/>
+                </figure>
+                <div class=\"card-body\">
+                    <h2 class='card-title'>{$products['product_name']}</h2>
+                    <p>{$products['product_description']}</p>
+                    <div class='card-actions justify-end'>
+                        <span class='text-2xl font-bold'>{$products['product_price']}<sup>€</sup></span>
+                        <button class='btn btn-primary'>Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>";
+        $gridcol++;
+        if ($gridcol > 3) {
+            $gridcol = 1;
+            $gridrow++;
+        }
+    }
+    ?>
+    </div>
+</main>
+<?php include 'footer.php'; ?>
